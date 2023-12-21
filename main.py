@@ -28,5 +28,5 @@ for i in range(len(product_name)):
 # 2023-03-01      155.3  182.0    168.9      133.2      96.9           166.5   144.2       124.9                     188.7             150.4                    146.0
 
 # save the dataframe to csv
-# df.to_csv("./data/Canada_CPI_11012022_11012023.csv")
+#df.to_csv("./data/Canada_CPI_11012022_11012023.csv")
 
