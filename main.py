@@ -29,4 +29,6 @@ for i in range(len(product_name)):
 
 # save the dataframe to csv
 #df.to_csv("./data/Canada_CPI_11012022_11012023.csv")
-
+# save the dataframe to json
+df.reset_index(inplace=True)
+df.to_json("./data/Canada_CPI_11012022_11012023.json", orient='records')
