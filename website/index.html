@@ -87,13 +87,19 @@
         </table>
         </div>
         <div class="card" style="grid-column: span 7;">
-        <div class="card-header">Trend</div>
+        <div class="card-header"></div>
         <div class="chart-container">
             <select id="lineSelector">
-                <option value="all">All</option>
-                <option value="allitems">All items</option>
-                <option value="food">Food</option>
-                <option value="shelter">Shelter</option>
+                <option value="All">All</option>
+                <option value="All items">All items</option>
+                <option value="Food">Food</option>
+                <option value="Shelter">Shelter</option>
+                <option value="Household">Household</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Transportation">Transportation</option>
+                <option value="Health">Health</option>
+                <option value="Recreation">Recreation</option>
+                <option value="Alcohol-tobacco-cannabis">Alcohol-tobacco-cannabis</option>
             </select>
             <canvas id="cpiChart"></canvas>
         </div>
@@ -112,6 +118,12 @@
                 const allItems = data.map(item => item['All-items']);
                 const food = data.map(item => item['Food']);
                 const shelter = data.map(item => item['Shelter']);
+                const household = data.map(item => item['Household']);
+                const clothing = data.map(item => item['Clothing']);
+                const transportation = data.map(item => item['Transportation']);
+                const health = data.map(item => item['Health']);
+                const recreation = data.map(item => item['Recreation']);
+                const alcohol = data.map(item => item['Alcohol-tobacco-cannabis']);
                 // Get the context of the canvas element we want to select
                 var ctx = document.getElementById('cpiChart').getContext('2d');
         
@@ -123,23 +135,74 @@
                         datasets: [{
                             label: 'All items',
                             data: allItems,
-                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                            borderColor: 'rgba(75, 192, 192, 1)',
-                            borderWidth: 1
+                            backgroundColor: '#F94144',
+                            borderColor: '#F94144',
+                            borderWidth: 1,
+                            hidden: false
                         },
                         {
                             label: 'Food',
                             data: food,
-                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                            borderColor: 'rgba(255, 99, 132, 1)',
-                            borderWidth: 1
+                            backgroundColor: '#F3722C',
+                            borderColor: '#F3722C',
+                            borderWidth: 1,
+                            hidden: false
                         },
                         {
                             label: 'Shelter',
                             data: shelter,
-                            backgroundColor: 'rgba(255, 159, 64, 0.2)',
-                            borderColor: 'rgba(255, 159, 64, 1)',
-                            borderWidth: 1
+                            backgroundColor: '#cca000',
+                            borderColor: '#cca000',
+                            borderWidth: 1,
+                            hidden: false
+                        },
+                        {
+                            label: 'Household',
+                            data: household,
+                            backgroundColor: '#90BE6D',
+                            borderColor: '#90BE6D',
+                            borderWidth: 1,
+                            hidden: true
+                        },
+                        {
+                            label: 'Clothing',
+                            data: clothing,
+                            backgroundColor: '#43AA8B',
+                            borderColor: '#43AA8B',
+                            borderWidth: 1,
+                            hidden: true
+                        },
+                        {
+                            label: 'Transportation',
+                            data: transportation,
+                            backgroundColor: '#577590',
+                            borderColor: '#577590',
+                            borderWidth: 1,
+                            hidden: true
+                        },
+                        {
+                            label: 'Health',
+                            data: health,
+                            backgroundColor: '#277DA1',
+                            borderColor: '#277DA1',
+                            borderWidth: 1,
+                            hidden: true
+                        },
+                        {
+                            label: 'Recreation',
+                            data: recreation,
+                            backgroundColor: '#c200fb',
+                            borderColor: '#c200fb',
+                            borderWidth: 1,
+                            hidden: true
+                        },
+                        {
+                            label: 'Alcohol-tobacco-cannabis',
+                            data: alcohol,
+                            backgroundColor: '#220901',
+                            borderColor: '#220901',
+                            borderWidth: 1,
+                            hidden: true
                         }]
                     },
                     options: {
@@ -147,6 +210,15 @@
                         scales: {
                             y: {
                                 beginAtZero: false
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            title: {
+                                display: true,
+                                text: 'Canada CPI Trend'
                             }
                         }
                     }
@@ -157,10 +229,10 @@
 
                     // Update the 'hidden' property of each dataset depending on the selected option
                     myChart.data.datasets.forEach(function(dataset) {
-                        if (selectedOption === 'all') {
+                        if (selectedOption === 'All') {
                             dataset.hidden = false;
                         } else {
-                            dataset.hidden = dataset.label.toLowerCase().replace(' ', '') !== selectedOption;
+                            dataset.hidden = dataset.label !== selectedOption;
                         }
                     });
 
