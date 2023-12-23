@@ -9,3 +9,6 @@ Please go to [https://andy3278.github.io/Canada-Monthly-CPI/](https://andy3278.g
 - After scraping data, they are stored in csv and json files
 - then a simple html website display the data
 
+##
+[![run main.py](https://github.com/andy3278/Canada-Monthly-CPI/actions/workflows/actions.yml/badge.svg?event=schedule)](https://github.com/andy3278/Canada-Monthly-CPI/actions/workflows/actions.yml)
+[![run main.py](https://github.com/andy3278/Canada-Monthly-CPI/actions/workflows/actions.yml/badge.svg?event=check_run)](https://github.com/andy3278/Canada-Monthly-CPI/actions/workflows/actions.yml)
