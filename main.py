@@ -14,9 +14,9 @@ product_name = ["All-items","Food","Shelter","Household","Clothing","Transportat
 table_ids = ["v41690914","v41690915","v41690916","v41690917","v41690918","v41690919","v41690920","v41690921","v41690922","v41690923","v41690924"]
 
 # put all product groups into one dataframe
-df = pd.DataFrame()
-for i in range(len(product_name)):
-    df = pd.concat([df,get_stats_can(table_ids[i],product_name[i])],axis=1)
+# df = pd.DataFrame()
+# for i in range(len(product_name)):
+#     df = pd.concat([df,get_stats_can(table_ids[i],product_name[i])],axis=1)
 
 # this is what the dataframe looks like
 #             All-items   Food  Shelter  Household  Clothing  Transportation  Health  Recreation  Alcohol-tobacco-cannabis  All-exclude-food  All-exclude-food-energy
@@ -30,5 +30,18 @@ for i in range(len(product_name)):
 # save the dataframe to csv
 #df.to_csv("./data/Canada_CPI_11012022_11012023.csv")
 # save the dataframe to json
+# df.reset_index(inplace=True)
+# df.to_json("./data/Canada_CPI_11012022_11012023.json", orient='records')
+
+# get unemployment rate from stats can
+
+df = stats_can.sc.vectors_to_df("v2062815", periods= target_months)
+df.rename(columns={"v2062815": "Unemployment rate"}, inplace=True)
+df.index.names = ['Date']
+
+# save unemployment rate to json
 df.reset_index(inplace=True)
-df.to_json("./data/Canada_CPI_11012022_11012023.json", orient='records')
+df.to_json("./data/Canada_Unemployment_rate.json", orient='records')
+
+# save unemployment rate to csv
+df.to_csv("./data/Canada_Unemployment_rate.csv")
