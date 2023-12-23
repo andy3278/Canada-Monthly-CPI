@@ -28,10 +28,10 @@ for i in range(len(product_name)):
 # 2023-03-01      155.3  182.0    168.9      133.2      96.9           166.5   144.2       124.9                     188.7             150.4                    146.0
 
 # save the dataframe to csv
-df.to_csv("./data/Canada_CPI_11012022_11012023.csv")
+df.to_csv("./docs/data/Canada_CPI.csv")
 # save the dataframe to json
 df.reset_index(inplace=True)
-df.to_json("./data/Canada_CPI_11012022_11012023.json", orient='records')
+df.to_json("./docs/data/Canada_CPI.json", orient='records')
 
 # get unemployment rate from stats can
 
@@ -41,10 +41,10 @@ df.index.names = ['Date']
 
 # save unemployment rate to json
 df.reset_index(inplace=True)
-df.to_json("./data/Canada_Unemployment_rate.json", orient='records')
+df.to_json("./docs/data/Canada_Unemployment_rate.json", orient='records')
 
 # # save unemployment rate to csv
-df.to_csv("./data/Canada_Unemployment_rate.csv")
+df.to_csv("./docs/data/Canada_Unemployment_rate.csv")
 
 # get average weekly earnings from stats can
 
@@ -53,5 +53,5 @@ df.rename(columns={"v54027306": "Average weekly earnings"}, inplace=True)
 df.index.names = ['Date']
 
 df.reset_index(inplace=True)
-df.to_json("./data/Canada_earnings.json", orient='records')
-df.to_csv("./data/Canada_earnings.csv")
+df.to_json("./docs/data/Canada_earnings.json", orient='records')
+df.to_csv("./docs/data/Canada_earnings.csv")
