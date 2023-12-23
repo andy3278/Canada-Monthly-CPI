@@ -1,9 +1,9 @@
 
 // Load JSON data
 Promise.all([
-    fetch('../data/Canada_CPI_11012022_11012023.json').then(response => response.json()),
-    fetch('../data/Canada_Unemployment_rate.json').then(response => response.json()),
-    fetch('../data/Canada_earnings.json').then(response => response.json())
+    fetch('./data/Canada_CPI_11012022_11012023.json').then(response => response.json()),
+    fetch('./data/Canada_Unemployment_rate.json').then(response => response.json()),
+    fetch('./data/Canada_earnings.json').then(response => response.json())
 ])
 .then(([data1, data2, data3]) => {
     // target month 

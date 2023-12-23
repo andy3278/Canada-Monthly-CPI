@@ -1,2 +1,3 @@
 # Canada-Monthly-CPI
- Dispaly and visualize canada cpi changes
+ Dispaly and Canada's CPI, unemployment rate, and weekly payroll 
+  
