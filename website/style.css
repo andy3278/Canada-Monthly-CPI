@@ -1,0 +1,134 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #121212; /* Dark background for the whole page */
+    color: #ffffff; /* Light text color for contrast */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: 20px;
+}
+
+.card {
+    background: #1e1e1e; /* Dark background for cards */
+    border: none; /* Remove border for a cleaner look */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners for cards */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Subtle shadow for depth */
+}
+
+.card-header {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.chart-container {
+    height: auto; /* Corrected typo from 'atuo' to 'auto' */
+    padding-bottom: 2%;
+    position: relative;
+}
+
+#unemployChart {
+    height: 100%;
+    width: 100%;
+}
+
+#unemployChartContainer {
+    height: 95%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: auto;
+}
+
+table, th, td {
+    border: 1px solid #323232; /* Darker borders for elements */
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    background-color: #1e1e1e; /* Dark background for table cells */
+}
+
+th {
+    background-color: #262626; /* Even darker background for table headers */
+}
+
+.scrollable-table {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.kpi {
+    font-size: 2.7rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.kpi-change {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.kpi-header {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    position: relative;
+    text-align: center;
+}
+
+.red {
+    color: #ff5370; /* Adjusted to a more vibrant red for better visibility */
+}
+
+.green {
+    color: #c3e88d; /* Adjusted to a more vibrant green for better visibility */
+}
+
+.unchanged {
+    color: #ffffff; /* Set unchanged values to white for visibility */
+}
+
+/* Additional styles for links and buttons to match dark theme */
+a, button {
+    color: #ffffff;
+    background-color: #333333;
+    border: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+a:hover, button:hover {
+    background-color: #424242;
+}
+
+/* Style for form inputs to match the dark theme */
+input, select {
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #424242;
+    padding: 10px;
+    border-radius: 4px;
+}
