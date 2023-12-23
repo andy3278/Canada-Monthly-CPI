@@ -36,8 +36,10 @@
         position: relative;
     }
     table {
+        height: 400px;
         width: 100%;
         border-collapse: collapse;
+        overflow: auto;
     }
     table, th, td {
         border: 1px solid #e1e1e1;
@@ -48,6 +50,10 @@
     }
     th {
         background-color: #f8f8f8;
+    }
+    .scrollable-table {
+    max-height: 400px;
+    overflow-y: auto;
     }
 </style>
     </head>
@@ -68,25 +74,8 @@
         <div class="card-header">KPI 3</div>
         <!-- KPI 3 content goes here -->
         </div>
+        <!-- Line Chart -->
         <div class="card" style="grid-column: span 4;">
-        <div class="card-header">Table</div>
-        <table id="data-table">
-            <thead>
-            <tr>
-                <th>Month</th>
-                <th>CPI Value</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>January</td>
-                <td>100</td>
-            </tr>
-            <!-- More rows go here -->
-            </tbody>
-        </table>
-        </div>
-        <div class="card" style="grid-column: span 7;">
         <div class="card-header"></div>
         <div class="chart-container">
             <select id="lineSelector">
@@ -104,6 +93,33 @@
             <canvas id="cpiChart"></canvas>
         </div>
         </div>
+        <!-- Table -->
+        <div class="card" style="grid-column: span 6;">
+            <div class="card-header">Data Table</div>
+            <div class="scrollable-table">
+                <table id="data-table">
+                    <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>All items</th>
+                        <th>Food</th>
+                        <th>Shelter</th>
+                        <th>Household</th>
+                        <th>Clothing</th>
+                        <th>Transportation</th>
+                        <th>Health care</th>
+                        <th>Recreation</th>
+                        <th>Alcohol tobacco cannabis</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                    </tr>
+                    <!-- More rows go here -->
+                    </tbody>
+                </table>
+            </div>
+            </div>
     </div>
     </div>
 
@@ -252,6 +268,37 @@
                 }
                 var latestUpdateString = latestUpdate.toISOString().substring(0, 10);
                 latestDataDiv.textContent = `Last update: ${latestUpdateString} | Latest data: ${latestDateString}`;
+
+                // Create the table
+                var tableBody = document.getElementById('data-table').getElementsByTagName('tbody')[0];
+                // sorting data by date descending
+                data.sort(function(a, b) {
+                    var dateA = new Date(a.Date), dateB = new Date(b.Date);
+                    return dateB - dateA; // sort in descending order
+                });
+                data.forEach(function(item) {
+                    var row = tableBody.insertRow();
+                    var monthCell = row.insertCell();
+                    var cpiCell = row.insertCell();
+                    var foodCell = row.insertCell();
+                    var shelterCell = row.insertCell();
+                    var householdCell = row.insertCell();
+                    var clothingCell = row.insertCell();
+                    var transportationCell = row.insertCell();
+                    var healthCell = row.insertCell();
+                    var recreationCell = row.insertCell();
+                    var alcoholCell = row.insertCell();
+                    monthCell.textContent = new Date(item.Date).toISOString().substring(0, 10);
+                    cpiCell.textContent = item['All-items'];
+                    foodCell.textContent = item['Food'];
+                    shelterCell.textContent = item['Shelter'];
+                    householdCell.textContent = item['Household'];
+                    clothingCell.textContent = item['Clothing'];
+                    transportationCell.textContent = item['Transportation'];
+                    healthCell.textContent = item['Health'];
+                    recreationCell.textContent = item['Recreation'];
+                    alcoholCell.textContent = item['Alcohol-tobacco-cannabis'];
+                });
             });
         
     </script>
