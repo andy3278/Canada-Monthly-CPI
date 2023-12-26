@@ -1,5 +1,5 @@
 # Canada-Monthly-CPI
- Dispaly and Canada's CPI, unemployment rate, and weekly payroll 
+> Dispaly and Canada's CPI, unemployment rate, and weekly payroll 
 
 Please go to [https://andy3278.github.io/Canada-Monthly-CPI/](https://andy3278.github.io/Canada-Monthly-CPI/) to see the project
 ![capture of the website](Canada%20CPI%20Trend%20Dashboard.jpeg)
